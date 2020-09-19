@@ -2,8 +2,13 @@ syntax on
 colorscheme desert
 set relativenumber
 set shell=/bin/zsh
+set ignorecase
+set hlsearch
 
-" Vundle blolk
+set shiftwidth=4
+set smarttab	
+
+" Vundle block
 set nocompatible
 set backspace=2
 filetype off
@@ -17,7 +22,7 @@ call vundle#begin()
 	Plugin 'preservim/nerdtree'
 	Plugin 'preservim/nerdcommenter'
 	Plugin 'junegunn/fzf.vim'
-call vundle#end()            " required
+call vundle#end()
 
 " vim-rainbow block
 let g:rainbow_active = 1
@@ -25,4 +30,4 @@ let g:rainbow_active = 1
 set laststatus=2
 " NERDTree block
 map <F10> :NERDTreeToggle<CR>
-filetype plugin indent on    " required
+filetype plugin indent on
