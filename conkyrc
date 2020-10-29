@@ -1,1 +1,128 @@
-/home/yaroslav/.conkyrc
+conky.config = {
+-- Begin Window Settings
+
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = false,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+	own_window_class = 'Conky',
+	own_window_title = 'arch conky',
+	own_window_argb_visual = true,
+	own_window_argb_value = 70,
+
+	minimum_width = 220, minimum_height = 0,
+	maximum_width = 220,
+
+	gap_x = 10,
+	gap_y = 10,
+
+	alignment = 'top_left',
+
+--  End Window Settings
+--  Font Settings
+
+	use_xft = true,
+	font = 'Liberation Sans:size=9',
+	xftalpha = 1,
+	override_utf8_locale = true,
+	uppercase = false,
+
+--  End Font Settings
+--  Colour Settings
+
+	draw_shades = true,
+	default_shade_color = '#1e1e1e',
+	draw_outline = false,
+	default_outline_color = '#505050',
+
+	default_color = '#d8d8d8',-- Silver
+	color0 = '#B0E0E6',-- PowderBlue
+	color1 = '#778899',-- LightSlateGray
+	color2 = '#D8BFD8',-- Thistle
+	color3 = '#9ACD32',-- YellowGreen
+	color4 = '#FFA07A',-- LightSalmon
+	color5 = '#FFDEAD',-- NavajoWhite
+	color6 = '#00BFFF',-- DeepSkyBlue
+	color7 = '#5F9EA0',-- CadetBlue
+	color8 = '#BDB76B',-- DarkKhaki
+	color9 = '#CD5C5C',-- IndianRed
+
+--  End Colour Settings
+--  Borders Section
+
+	draw_borders = false,
+	stippled_borders = 10,
+	border_inner_margin = 5,
+	border_outer_margin = 1,
+	border_width = 0,
+	draw_graph_borders = true,
+	default_graph_width = 15, default_graph_height = 40,
+
+--  End Borders Section
+--  Miscellaneous Section
+
+	background = true,
+	use_spacer = 'none',
+	text_buffer_size = 6144,
+	no_buffers = true,
+	
+	short_units = true,
+	pad_percents = 2,
+	imlib_cache_size = 0,
+	double_buffer = true,
+	max_user_text = 16384,
+	temperature_unit = 'celsius',
+	update_interval = 1,
+
+--  End Miscellaneous Section
+};
+
+conky.text = [[
+${alignc}${color orange}H O S T  I N F O
+${hr}${color}
+host: ${alignr}${color DeepSkyBlue}${nodename}${color}
+kernel: ${alignr}${kernel}
+packages: ${alignr}${exec "pacman -Q | wc -l"}(pacman)
+uptime: ${alignr}${uptime_short}
+
+${alignc}${color orange}H A R D W A R E
+${hr}${color}
+${if_match ${cpu cpu0}>=85}${color red}CPU: ${cpu cpu0}% ${exec sensors | grep "Core 0:" | awk '{print $3}' | cut -c 2-3}°C${alignr}${freq_g}GHz${color}${else}CPU: ${cpu cpu0}% ${exec sensors | grep "Core 0:" | awk '{print $3}' | cut -c 2-3}°C${alignr}${freq_g}GHz${endif}
+${cpugraph cpu1 30,108 9ACD32 CD5C5C -t} ${cpugraph cpu2 30,108 9ACD32 CD5C5C -t}${offset -218}${voffset 3}${font hack:size=6}th1${goto 118}th2${font}
+${voffset -16}${cpugraph cpu3 30,108 9ACD32 CD5C5C -t} ${cpugraph cpu4 30,108 9ACD32 CD5C5C -t}${offset -218}${voffset 3}${font hack:size=6}th3${goto 118}th4${font}${voffset -14}
+${stippled_hr}
+${if_match  ${memperc}>=85}${color red}RAM: ${memperc}%
+${membar 4,95} ${alignr}${mem}/${memmax}${color}${else}RAM: ${memperc}%
+${membar 4,95} ${alignr}${mem}/${memmax}${endif}
+${stippled_hr}
+${if_match ${swapperc}>=85}${color red}SWAP: ${swapperc}%
+${swapbar 4,95} ${alignr}${swap}/${swapmax}${color}${else}SWAP: ${swapperc}%
+${swapbar 4,95} ${alignr}${swap}/${swapmax}${endif}
+${stippled_hr}
+${if_match ${fs_used_perc /}>=85}${color red}root: ${fs_used_perc /}% ${fs_type /}
+${fs_bar 4,95} ${alignr}${fs_used /}/${fs_size /}${color}${else}root: ${fs_used_perc /}% ${fs_type /}
+${fs_bar 4,95} ${alignr}${fs_used /}/${fs_size /}${endif}
+HDD ${fs_type /mnt/misc}
+  ${if_match ${fs_used_perc /mnt/misc}>=85}${color red}├─ misc: ${fs_used_perc /mnt/misc}% ${alignr}${fs_used /mnt/misc}/${fs_size /mnt/misc}${color}${else}├─ misc: ${fs_used_perc /mnt/misc}% ${alignr}${fs_used /mnt/misc}/${fs_size /mnt/misc}${endif}
+  ${if_match ${fs_used_perc /mnt/win}>=85}${color red}└─ win: ${fs_used_perc /mnt/win}% ${alignr}${fs_used /mnt/win}/${fs_size /mnt/win}${color}${else}└─ win: ${fs_used_perc /mnt/win}% ${alignr}${fs_used /mnt/win}/${fs_size /mnt/win}${endif}
+
+${alignc}${color orange}N E T W O R K
+${hr}${color}
+${if_existing /proc/net/route wlp4s0}WLAN
+  ├─ IP: ${addr wlp4s0}
+  └─ speed: ${downspeedgraph wlp4s0 12,80 9ACD32 CD5C5C -t -l}${alignr}${downspeed wlp4s0}${else}wlp4s0 is down${endif}
+${if_existing /proc/net/route enp3s0}ETH
+  ├─ IP: ${addr enp3s0}
+  └─ speed: ${downspeedgraph enp3s0 12,70 9ACD32 CD5C5C -t -l}${alignr}${downspeed enp3s0}${else}enp3s0 is down${endif}
+
+${alignc}${color orange}T O P 
+${hr}${color}
+NAME${alignr}${offset -10}CPU    MEM%
+${stippled_hr}
+${top name 1}${alignr}${offset -10}${top cpu 1}     ${top mem 1}
+${top name 2}${alignr}${offset -10}${top cpu 2}     ${top mem 2}
+${top name 3}${alignr}${offset -10}${top cpu 3}     ${top mem 3}
+${top name 4}${alignr}${offset -10}${top cpu 4}     ${top mem 4}
+${top name 5}${alignr}${offset -10}${top cpu 5}     ${top mem 5}
+]];
