@@ -3,7 +3,7 @@ conky.config = {
 
 	own_window = true,
 	own_window_type = 'normal',
-	own_window_transparent = false,
+	own_window_transparent = true,
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	own_window_colour = '#000000',
 	own_window_class = 'Conky',
@@ -15,7 +15,7 @@ conky.config = {
 	maximum_width = 220,
 
 	gap_x = 10,
-	gap_y = 10,
+	gap_y = 40,
 
 	alignment = 'top_left',
 

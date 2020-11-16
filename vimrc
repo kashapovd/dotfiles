@@ -12,7 +12,7 @@ set smarttab
 set nocompatible
 set backspace=2
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/autoload/vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 	Plugin 'VundleVim/Vundle.vim'
 	Plugin 'git://git.wincent.com/command-t.git'
