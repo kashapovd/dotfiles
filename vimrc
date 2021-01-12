@@ -22,6 +22,7 @@ call vundle#begin()
 	Plugin 'preservim/nerdtree'
 	Plugin 'preservim/nerdcommenter'
 	Plugin 'junegunn/fzf.vim'
+	Plugin 'rust-lang/rust.vim'
 call vundle#end()
 
 " vim-rainbow block
