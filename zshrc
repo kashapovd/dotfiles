@@ -19,7 +19,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git bundler zsh-wakatime)
+plugins=(git bundler wakatime)
 
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
@@ -43,7 +43,7 @@ alias sudo="sudo "
 alias pacman="sudo pacman"
 
 zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename '/home/yaroslav/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
