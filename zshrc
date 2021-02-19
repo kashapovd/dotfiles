@@ -19,7 +19,7 @@ ZSH_THEME="gentoo"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git bundler wakatime)
+plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,7 +30,7 @@ LFS=/mnt/lfs
 MISC=/mnt/misc
 LIBVA_DRIVER_NAME=i965
 PAGER="most"
-MAKEFLAGS='-j16'
+MAKEFLAGS="-j$(nproc)"
 export LFS MISC LIBVA PAGER MAKEFLAGS
 
 alias zshcfg="vim ~/.zshrc"
