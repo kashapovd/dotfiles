@@ -26,21 +26,21 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-LFS=/mnt/lfs
-MISC=/mnt/misc
-LIBVA_DRIVER_NAME=i965
-PAGER="most"
-MAKEFLAGS="-j$(nproc)"
-export LFS MISC LIBVA PAGER MAKEFLAGS
+#LFS=/mnt/lfs
+#MISC=/mnt/misc
+#LIBVA_DRIVER_NAME=i965
+#PAGER="most"
+#MAKEFLAGS="-j$(nproc)"
+#export LFS MISC LIBVA PAGER MAKEFLAGS
 
 alias zshcfg="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sudo="sudo "
-alias pacman="sudo pacman"
+#alias pacman="sudo pacman"
 
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+#source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 #source /usr/share/powerline/bindings/zsh/powerline.zsh
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
