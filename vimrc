@@ -16,7 +16,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 	Plugin 'VundleVim/Vundle.vim'
 	Plugin 'git://git.wincent.com/command-t.git'
- 	Plugin 'wakatime/vim-wakatime'
 	Plugin 'frazrepo/vim-rainbow'
 	Plugin 'itchyny/lightline.vim'
 	Plugin 'preservim/nerdtree'
