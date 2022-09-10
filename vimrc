@@ -1,6 +1,6 @@
 syntax on
 colorscheme desert
-set relativenumber
+"set relativenumber
 set shell=/bin/zsh
 set ignorecase
 set hlsearch
